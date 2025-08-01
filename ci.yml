@@ -2,9 +2,9 @@ name: Build and Run Container
 
 on:
   push:
-    branches: [ main ]
+    branches: [ niz ]
   pull_request:
-    branches: [ main ]
+    branches: [ niz ]
 
 jobs:
   build-and-run:
