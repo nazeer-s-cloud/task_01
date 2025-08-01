@@ -1,0 +1,29 @@
+name: Build and Run Container
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker image
+      run: docker build -t my-web-container .
+
+    - name: Run Docker container (test)
+      run: docker run -d -p 8000:8000 my-web-container
+
+    - name: Curl test
+      run: |
+        sleep 5
+        curl http://localhost:8000/web.html
