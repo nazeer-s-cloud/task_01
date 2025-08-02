@@ -1,2 +1,3 @@
 # task_01
-for training 
+This is a example repo for **training**
+***
